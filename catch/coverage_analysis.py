@@ -565,15 +565,15 @@ class Analyzer:
 
             # Create an row for every probe
             for p, count in self.probe_map_counts.items():
-               row = [p.identifier(), p.seq_str, count,
-                      # primer3 ionic concentrations from Primal Scheme
-                      round(primer3.calcTm(p.seq_str, mv_conc=50,
-                                           dv_conc=1.5, dntp_conc=0.6), 2),
-                      round(primer3.calcHomodimer(p.seq_str, mv_conc=50,
-                                                  dv_conc=1.5,
-                                                  dntp_conc=0.6).tm, 2),
-                      round(primer3.calcHairpin(p.seq_str, mv_conc=50,
-                                                dv_conc=1.5,
-                                                dntp_conc=0.6).tm, 2)]
+                row = [p.identifier(), p.seq_str, count,
+                       # primer3 ionic concentrations from Primal Scheme
+                       round(primer3.calcTm(p.seq_str, mv_conc=50,
+                                            dv_conc=1.5, dntp_conc=0.6), 2),
+                       round(primer3.calcHomodimer(p.seq_str, mv_conc=50,
+                                                   dv_conc=1.5,
+                                                   dntp_conc=0.6).tm, 2),
+                       round(primer3.calcHairpin(p.seq_str, mv_conc=50,
+                                                 dv_conc=1.5,
+                                                 dntp_conc=0.6).tm, 2)]
                 line = '\t'.join([str(x) for x in row])
                 f.write(line + '\n')
